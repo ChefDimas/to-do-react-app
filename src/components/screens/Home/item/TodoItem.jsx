@@ -1,12 +1,14 @@
 import React from "react";
-import {BsCheck} from "react-icons/bs";
+import CheckBox from "./CheckBox";
 
-const TodoItem = ( {todo} ) => {
+const TodoItem = ( {todo, changeTodo} ) => {
     return (
-        <div>
-            <BsCheck />
-            {todo.title}
-        </div>
+        <button className="flex items-center text-4xl mb-4 rounded-xl
+         bg-gray-800 p-4 min-w-full"
+        onClick={() => changeTodo(todo._id)}>
+            <CheckBox isCompleted={todo.isCompleted}/>
+            <span className={`underline ${todo.isCompleted ? "line-through" : ""}`}>{todo.title}</span>
+        </button>
     )
 };
 
